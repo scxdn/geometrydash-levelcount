@@ -26,5 +26,5 @@ npm i cors
 npm i node-fetch@2
 ```
 once that is finished installing, you should be able to type `node index.js` and the script should start. you can test this by going to `http://localhost:6969` in your browser. if it works, open up the html files, they should work!
-they're all seperate, and not really good looking from the browser. this is because they were intended to be used within obs studio, and not in the browser. i made these for myself or a specific niche use lol. only releasing this since ive been asked to
+they're all seperate, and not really good looking from the browser. this is because they were intended to be used within obs studio, and not in the browser. i made these for myself for a specific niche use lol. only releasing this since ive been asked to
 
