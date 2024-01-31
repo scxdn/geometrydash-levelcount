@@ -1,0 +1,62 @@
+<head>
+    <script src="odometer copy.js"></script>
+    <link rel=stylesheet href="odometer-theme-minimal.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+</head> 
+    <style>
+       *{
+            font-family: 'Roboto';
+            font-weight: 700;
+        }
+
+        body {
+            background-color: black !important;
+        }
+        #count {
+            font-size: 255px;
+            color: white;
+        }
+        #txt{
+          font-size: 30px;
+        }
+        #txta{
+          font-size: 30px;
+          text-align: center;
+        }
+        #left{
+            font-size: 50px;
+        }
+        li {
+            list-style: none;
+        }
+    </style>
+<body>
+   
+        <li id="count" style="color: rgb(255, 255, 255);"class="odometer">0</li>
+        <li id="txt" style="color: white;">Geometry Dash Levels</li>
+        <p id="txta" style="color: rgb(255, 255, 24);"></p>
+        <p id="left" style="color: rgb(50, 255, 255);" class="odometer">0</p>
+    <script>
+                var num = 0;
+                function datas() {
+                    fetch('http://localhost:6969/').then(res => res.json()).then(data => {
+                        num = data.count;
+                        txta.innerHTML = data.name + ', ' + data.stars + ' stars';
+                    });
+                }
+
+                function render() {
+                    count.innerHTML = num
+                    left.innerHTML = 100000000 - num;
+                }
+
+                datas();
+                render();
+
+                setInterval(() => {
+                datas();
+                render();
+                }, 2000);
+    </script>
+
+</body>

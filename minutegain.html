@@ -1,0 +1,46 @@
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Istok+Web&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<p id=ua style="font-family: 'Roboto', sans-serif; color: #bdff5b; font-size: 14em; text-transform: uppercase;">0</p>
+<script>
+ 
+ let minute = []
+
+function calcInOne(array) {
+    let number = 0;
+    for (var i = 1; i < array.length; i++) {
+        number += array[i]-array[i-1]
+    }
+    return number;
+}
+let min = 0;
+var o = 0;
+setInterval(() => {
+  fetch('http://localhost:6969/').then(res => res.json()).then(data => {
+    minute.push(Math.round(data.count))
+            if (minute.length > 30) {
+                minute.shift()
+            }
+            let inMins = calcInOne(minute)
+            console.log(inMins)
+            min = inMins
+    });
+}, 2000);
+
+function render() { 
+    if (min >= 0) {
+        ua.innerHTML = '+'+ min.toLocaleString() + ''
+        ua.style.color = '#bdff5b'
+    } else {
+        ua.innerHTML = min.toLocaleString() + ''
+        ua.style.color = '#e53b00'
+    }
+        old = min
+    }
+
+setInterval(() => {
+    render()
+}, 1000);
+
+</script>
