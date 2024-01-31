@@ -1,22 +1,10 @@
 <!--extremely old and shitty code i lazily repurposed pls dont judge me-->
-<head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
-</head>
-
-<style>
-    #chart{
-        background-color: transparent;
-    }
-</style>
 <script src="https://code.highcharts.com/stock/10.3.0/highstock.js"></script>
 <button id="clear" onclick="cleargraph()"></button>
 <div id="chart"></div>
 
-<script type="text/javascript">
-
-           
-var line = '#b3382c'
-   chart = new Highcharts.chart({
+<script>
+chart = new Highcharts.chart({
 chart: {
 renderTo: 'chart',
 type: 'spline',
@@ -64,21 +52,19 @@ credits: {
 enabled: false,
 text: ""
 },
-
 series: [{
 showInLegend: false,
 name: '',
 marker: { enabled: false },
 color: '#ffffff',
 lineColor: '#c76c6c',
-lineWidth: 9
+lineWidth: 5
 }]
-
 });
-    </script>	
+</script>	
 
 
-<script type="text/javascript">
+<script>
     var n = 0;
     function fetchdatas() {
          fetch('http://localhost:6969/').then(res => res.json()).then(data => {
@@ -106,8 +92,6 @@ lineWidth: 9
 
 
 function cleargraph() {
-    var line = "#4169e1"
-
     chart = new Highcharts.chart({
 chart: {
 renderTo: 'chart',
@@ -156,7 +140,6 @@ credits: {
 enabled: false,
 text: ""
 },
-
 series: [{
 showInLegend: false,
 name: '',
@@ -165,12 +148,10 @@ color: '#ffffff',
 lineColor: '#c76c6c',
 lineWidth: 5
 }]
-
 });
 
 if (chart.series[0].points.length == 0) {
     console.log('Successfuly cleared the live chart!')
 }
-  
 }
 </script>
