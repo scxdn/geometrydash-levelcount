@@ -1,5 +1,4 @@
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Istok+Web&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <p id=ua style="font-family: 'Roboto', sans-serif; color: #bdff5b; font-size: 14em; text-transform: uppercase;">0</p>
@@ -15,7 +14,6 @@ function calcInOne(array) {
     return number;
 }
 let min = 0;
-var o = 0;
 setInterval(() => {
   fetch('http://localhost:6969/').then(res => res.json()).then(data => {
     minute.push(Math.round(data.count))
